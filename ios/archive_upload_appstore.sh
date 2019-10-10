@@ -1,12 +1,12 @@
 START=`date +%s`
 
 ARCHIVE_PATH="/Users/earyzhe/Library/Developer/Xcode/Archives/`date +"%Y-%m-%d"`/Runner_`date +"%Y-%m-%d_%H%M"`"
-WORKSPACEPATH="/Users/earyzhe/dev/FlutterProjects/dial_in_v1/ios/Runner.xcworkspace"
-SCHEME="release"
-EXPORTOPTIONSPLISTPATH="/Users/earyzhe/dev/FlutterProjects/dial_in_v1/ios/Runner/exportOptions.plist"
-EXPORTPATH="/Users/earyzhe/dev/FlutterProjects/dial_in_v1/build/ios/Runner_`date +"%Y-%m-%d_%H%M"`_IPA"
+WORKSPACEPATH="$PWD/ios/Runner.xcworkspace"
+SCHEME="Runner"
+EXPORTOPTIONSPLISTPATH="$PWD/ios/Runner/exportOptions.plist"
+EXPORTPATH="$PWD/ios/Runner_`date +"%Y-%m-%d_%H%M"`_IPA"
 DERIVEDDATAPATH="/Users/earyzhe/Library/Developer/Xcode/DerivedData"
-PROJECTPATH="/Users/earyzhe/dev/FlutterProjects/dial_in_v1/ios"
+PROJECTPATH="$PWD/ios"
 APP_NAME="Runner"
 
 FILEPATH=~/Dropbox/cloudDev/app_store_credentials.txt
