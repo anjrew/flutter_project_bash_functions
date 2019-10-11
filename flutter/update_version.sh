@@ -1,6 +1,6 @@
 #!/bin/ksh
 
-file="${PWD}/pubspec.yaml"
+FILE="${PWD}/pubspec.yaml"
 while IFS= read line
 do
     var="$line"
@@ -12,7 +12,7 @@ do
         APP_DETAILS=$VALUE
     fi
 
-done <$file
+done <$FILE
 
 APP_VERSION=$(echo $APP_DETAILS | awk -F'+' '{print $1}')
 BUILD_NUMBER=$(echo $APP_DETAILS | awk -F'+' '{print $2}')
@@ -50,4 +50,4 @@ NEW_APP_DETAILS="$NEW_APP_VERSION+$NEW_BUILD_NUMBER"
 
 echo "Updating app version from $APP_DETAILS to $NEW_APP_DETAILS"
 
-sed -i '' -e 's/'"$APP_DETAILS"'/'"$NEW_APP_DETAILS"'/g' "$file"
+sed -i '' -e 's/'"$APP_DETAILS"'/'"$NEW_APP_DETAILS"'/g' "$FILE"

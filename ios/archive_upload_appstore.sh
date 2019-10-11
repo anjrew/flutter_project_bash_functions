@@ -62,30 +62,30 @@ echo "The archive path is $ARCHIVE_PATH"
 echo "The Scheme name is $SCHEME"
 echo "Archiving"
 echo ""
-xcodebuild -workspace $WORKSPACEPATH -scheme $SCHEME clean archive -configuration Release -sdk iphoneos -archivePath $ARCHIVE_PATH
+xcodebuild -workspace "$WORKSPACEPATH" -scheme "$SCHEME" clean archive -configuration Release -sdk iphoneos -archivePath "$ARCHIVE_PATH"
 echo ""
 echo "Finished archiving"
 
 echo "Validating archieve with username $USERNAME and $DIAL_IN_BUNDLE_PASSWORD"
 echo ""
-altool --validate-app -f $ARCHIVE_PATH -t platform -u $USERNAME -p $DIAL_IN_BUNDLE_PASSWORD
+altool --validate-app -f "$ARCHIVE_PATH" -t platform -u "$USERNAME" -p "$DIAL_IN_BUNDLE_PASSWORD"
 echo ""
 
 ARCHIVE_PATH="${ARCHIVE_PATH}.xcarchive"
-echo "The new archive path is $ARCHIVE_PATH"
-echo "The export options plist path is $EXPORTOPTIONSPLISTPATH"
-echo "The export path is $EXPORTPATH"
+echo "The new archive path is ${ARCHIVE_PATH}"
+echo "The export options plist path is ${EXPORTOPTIONSPLISTPATH}"
+echo "The export path is ${EXPORTPATH}"
 echo "Exporting archive to IPA"
 echo ""
-xcodebuild -exportArchive -allowProvisioningUpdates -allowProvisioningDeviceRegistration -archivePath "$ARCHIVE_PATH" -exportOptionsPlist  $EXPORTOPTIONSPLISTPATH -exportPath $EXPORTPATH
+xcodebuild -exportArchive -allowProvisioningUpdates -allowProvisioningDeviceRegistration -archivePath "$ARCHIVE_PATH" -exportOptionsPlist  "$EXPORTOPTIONSPLISTPATH" -exportPath "$EXPORTPATH"
 echo ""
 echo "Finished exporting archive to IPA"
 echo ""
 
 echo "Uploading with Username: ${USERNAME} and password ${DIAL_IN_PASSWORD}"
-echo "The export path is $EXPORTPATH"
+echo "The export path is "$EXPORTPATH""
 echo ""
-altool --upload-app -f $EXPORTPATH -u $USERNAME -p $DIAL_IN_PASSWORD
+altool --upload-app -f "$EXPORTPATH" -u "$USERNAME" -p "$DIAL_IN_PASSWORD"
 echo ""
 
 # flutter clean
